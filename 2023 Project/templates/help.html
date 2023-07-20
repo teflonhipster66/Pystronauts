@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/nav.css">
+    <link rel="stylesheet" href="../static/animation.css">
+    <title>PyChat</title>
+    <link rel="icon" type="image/x-icon" href="/static/logo-removebg-preview.png">
+   
+    
+</head>
+    <style>   
+body {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  font-family: sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  
+  justify-content: center;
+  background-image: url("https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80");
+}
+.c { 
+  color: #15172b
+}
+
+.form {
+  background-color: #15172b;
+  background-color:  #F08080;
+  border-radius: 3rem;
+  font-family: Tahoma, sans-serif;
+  box-sizing: border-box;
+  height: 20rem;
+  width: 30rem;
+  padding:20px;
+  align-items: center;
+  color: white
+}
+.response {
+font-family: sans-serif;
+  border-radius: 20px;
+  box-sizing: border-box;
+  height: 100px;
+  padding: 20px;
+  width: 320px;
+  align-items: center;
+  color: white
+}
+.submit {
+    font-family: Tahoma, sans-serif;
+background-color: #08d;
+  border-radius: 10px;
+  box-sizing: border-box;
+  height: 50px;
+  width: 320px;
+  color: white;
+}
+
+.title{
+    font-size: larger;
+    color:black;
+}
+.subtitle{
+    font-size: large;
+    color:black;
+}
+
+html {
+  overflow: scroll;
+}
+
+button {
+  margin-top:2rem;
+}
+
+#userinput {
+  margin-top: 2rem;
+  height: 3rem;
+  width:14rem;
+}
+
+
+
+.typewriter {
+  margin-left: 15rem;
+  width: 30rem;
+  height:20rem;
+  background-color: white;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  border-width: .2rem;
+  border-style:solid ;
+  border-color: #F08080;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 2);
+}
+
+.typewriter p {
+  padding: 1.5rem;
+  color: black;
+  font-family: monospace;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  font-size: 1em;
+}
+
+/* The typing effect */
+
+</style> 
+
+<body>
+
+  <nav>
+    <a style="padding-left: 2rem;" onclick="back()">&larr;</a>
+    <a href="{{url_for('map')}}">Home</a>
+  </nav>
+
+  <form action = "{{url_for('chatbot')}}" method="post">
+    <div class="form">
+      <div class="title">Ask PyChat!</div>
+      <div class="subtitle">Type in your question!</div>
+        <input id="userinput" name="userinput" class="input" type="text" placeholder="What is Python?"/><br>
+      <button type="text" class="submit" value="submit">submit</button>
+    </div>
+  </form> 
+
+
+  <div class="typewriter">
+    <!-- <p placeholder="Response"> {{response}} </p> -->
+    <p id="txt" value="{{response}}"></p>
+  </div>
+
+</body>
+
+
+<script>
+
+
+
+
+
+
+var i = 0;
+var txt = document.getElementById("txt").getAttribute('value');
+var speed = 50;
+
+function typeWriter() {
+  if(txt.length == 0) {
+    document.querySelector(".typewriter").style.backgroundColor = "transparent";
+    document.querySelector("form").style.position = "absolute"; document.querySelector("form").style.top = "50%"; document.querySelector("form").style.left = "50%"; document.querySelector("form").style.transform = "translate(-50%, -50%)";
+    document.querySelector('.typewriter').style.border = 'none';
+    document.querySelector('.typewriter').style.boxShadow = 'none';
+  }
+
+  if (i < txt.length) {
+    document.getElementById("txt").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(typeWriter, speed);
+  }
+}
+
+window.addEventListener("DOMContentLoaded", typeWriter);
+
+
+
+</script>
+
+<script src="../static/main.js"></script>
+
+</html>

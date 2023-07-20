@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Explorer Map</title>
+  <link href="style.css" rel="stylesheet" type="text/css"/>
+  <link rel="stylesheet" href="../static/nav.css"/>
+  <link rel="icon" type="image/x-icon" href="/static/logo-removebg-preview.png">
+  <style>
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 120px;
+  text-transform: uppercase;
+  font-family: 'Gambetta', serif;
+  letter-spacing: -3px;
+  transition: 700ms ease;
+  font-variation-settings: "wght" 311;
+  margin-bottom: 0.8rem;
+  color: PaleGoldenRod;
+  outline: none;
+  text-align: center;
+}
+
+h1:hover {
+  font-variation-settings: "wght" 582; 
+  letter-spacing: 1px;
+}
+
+p {
+  font-size: 1.2em;
+  line-height: 150%;
+  text-align: center;
+  color: MintCream;
+  letter-spacing: .5px;
+}
+body {
+    background-image: url("https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8fA%3D%3D&w=1000&q=80");
+}
+.rotate1 {
+  animation: rotation 5s;
+}
+
+.rotate2 {
+  animation: rotation 2s;
+}
+
+.rotate3 {
+  animation: rotation 10s;
+}
+
+.rotate4 {
+  animation: rotation 3s;
+}
+
+.linear {
+  animation-timing-function: linear;
+}
+
+.infinite {
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+a:hover {
+  transition: none;
+  transform: none;
+}
+
+
+html {
+  zoom:90%;
+}
+
+  </style>
+</head>
+
+<nav style = "color: white;">
+ <a> <table class="worddark">
+    <div style = "color: white;">
+    <tr style = "padding-left: 2rem;color: white;">
+      Email ID:
+      {{ account['email'] }}
+    </tr>
+    <tr style = "color: white;padding-left: 2rem;">
+        ||| Username:
+      {{ account['username'] }}
+    </tr>
+    <tr style = "color: white;padding-left: 2rem;">
+      |||  Progress:
+      {{ account['progress'] }}%
+      </tr>
+    </div>
+  </table>
+
+</a>
+  <a style="padding-left: 44rem;">
+    <progress  id="progress" value="{{account['progress']}}" max="100"> </progress>
+  </a>
+
+</nav>
+
+<body>
+  <div class="container">
+    <h1>Explorer Map</h1>
+    <p>Click on any unlocked planet to travel there.</p>
+    <div class="border">
+    </div>
+  </div>
+  <form method="get">
+    <a id="link2" name="4" href = "{{url_for('XYZ', image='planet4LOCK.png')}}">
+      <img src = "static/planet4LOCK.png" id="pic2"  width = "200px" style = "margin-right: 400px; padding-right: 80px; margin-left: 400px;">
+    </a>
+    <a id="link1" name="3" href = "{{url_for('XYZ', image='planet3LOCK.png')}}">
+      <img src = "static/planet3LOCK.png" id="pic1"  width = "200px" style = "margin-right: 200px; padding-right: 40px;">
+    </a>
+    <a id="link0" name="2" href= "{{url_for('XYZ', image='planet2LOCK.png')}}">
+      <img src = "static/planet2LOCK.png" id="pic0"  width = "200px" style = "margin-right: 600px; padding-right: 20px; margin-left: 256px; margin-top: 150px;" >
+    </a>
+    <a id = "link4" name="1" href = "{{url_for('XYZ', image='planet1.png')}}" >
+      <img  src = "static/planet1.png" class="rotate3 linear infinite"  width = "200px" style = "padding-right: 50px;">
+    </a>
+  </form>
+
+
+
+  
+ <script src="/static/main.js"></script>
+  
+</body>
+
+
+
+
+</html>
+

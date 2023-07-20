@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/animation.css">
+    <title>Level</title>
+    <link rel="icon" type="image/x-icon" href="/static/logo-removebg-preview.png">
+    <style>
+        
+    
+    </style>
+</head>
+
+<button style="display: none;" id="ValueHolder" value="{{body}}"></button>
+<div id="animation">
+    <div id="sky">
+        <div id="cloud">
+            </div>
+        </div>
+        <div id="sun" class="run"></div>
+        <div id="sea"></div>
+        <div id="ground">
+            <div id="grass"></div>
+            <div id="mountain"></div>
+        </div>
+</div>
+
+
+<div id="main">
+
+
+</div>
+
+
+
+<script>
+// Cleans up html for the body
+function remove_Lines(code) {
+var a = code.slice(11);
+a = a.slice(0, -5)
+return a.replace(/\\n/g, '');
+}
+
+// creates DOM element
+var body = document.getElementById("main");
+var html = document.getElementById("ValueHolder").value;
+window.addEventListener("load", function(event){
+var z = remove_Lines(html)
+body.innerHTML = `${z}`;
+document.getElementById("link1").href = `{{url_for('content', num=1)}}`
+document.getElementById("link2").href = `{{url_for('content', num=2)}}`
+document.getElementById("link3").href = `{{url_for('content', num=3)}}`
+document.getElementById("link4").href = `{{url_for('content', num=4)}}`
+
+})
+
+
+</script>
+
+
+
+
+
+    
+
+
+

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Unit 1: Data Types</title>
+  <script src="../static/main.js"></script>
+  <link rel="stylesheet" href="../static/nav.css">
+  <style>
+table {
+  font-family: sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+html {
+  height: 100%;
+  width: 100%;
+  color: #FFFFFF;
+}
+body {
+  background-color: #002D62;
+  padding-top: 4rem;
+  font-family: sans-serif;
+}
+
+ul {
+    margin-bottom: 2rem;
+}
+
+
+.quiz {
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+  text-align: left;
+  padding-top: 2rem;
+  margin:0;
+  background-color: black;
+  border-radius: 2rem;
+  font-family: sans-serif;
+}
+
+
+.Output-boxes {
+  width: 5rem;
+  height:5rem;
+}
+
+p {
+  font-size: 1.5rem;
+}
+
+
+
+
+
+</style> 
+<style src="../static/nav.css"></style>
+<link rel="icon" type="image/x-icon" href="/static/logo-removebg-preview.png">
+
+</head>
+
+
+<nav>
+  <button style="display: none;" id="ValueHolder" value="{{body}}"></button>
+  <a style="padding-left: 2rem;" onclick="back()">&larr;</a>
+  <a href="{{url_for('map')}}">Home</a>
+  <a href="{{url_for('Route')}}">PyChat</a>
+
+  
+</nav>
+
+
+
+<div id="main">
+
+</div>
+
+
+
+<script>
+
+
+  // Cleans up html for the body
+  function remove_Lines(code) {
+  var a = code.slice(11);
+  a = a.slice(0, -2)
+  return a.replace(/\\n/g, '');
+  
+}
+// creates DOM element
+  var body = document.getElementById("main");
+  var html = document.getElementById("ValueHolder").value;
+  window.addEventListener("DOMContentLoaded", function(event){
+  var z = remove_Lines(html)
+  body.innerHTML = `${z}`;
+  })
+
+const list = [1,2,3,4,5] 
+// Quiz code 
+
+function Quiz(){
+  for (let i = 0; i < 3; i++) {       
+    const radioButtons = document.querySelectorAll(`input[name="q${list[i]}"]`);
+    let choice;
+    for (const radioButton of radioButtons) {
+        if (radioButton.checked) {
+            choice = radioButton.value;
+            break;
+        }
+    }
+    // show the output:
+       
+    if (choice == "Correct") {  
+      document.getElementById(`head${list[i]}`).style.color = "green";
+  }
+    else {
+      document.getElementById(`a${list[i]}`).style.color = "green"; 
+      document.getElementById(`head${list[i]}`).style.color = "red";
+        
+        }
+    };
+  }
+
+
+</script>
+</html> 
+

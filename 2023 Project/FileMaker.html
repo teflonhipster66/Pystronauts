@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/animation.css">
+    <title>Level</title>
+    <style>
+        
+    
+    </style>
+</head>
+
+<button style="display: none;" id="ValueHolder" value="{{body}}"></button>
+<div id="animation">
+    <div id="sky">
+        <div id="cloud">
+            </div>
+        </div>
+        <div id="sun"  class="run"></div>
+        <div id="sea"></div>
+        <div id="ground">
+            <div id="grass"></div>
+            <div id="mountain"></div>
+        </div>
+</div>
+
+
+<body>
+    <style>
+    #sky {
+        background-color: #FFE569;
+    }
+    #sun {
+        background-color: #B70404;
+    }
+    #ground {
+        background-color: #4F200D;
+    }
+    #grass {
+        background-color: #FF8400;
+    }
+    #sea {
+		background-color: #FFD93D;
+	}
+    </style>
+    <h2>Level 2</h2>
+    <p>
+        Intermediate 
+        <br>
+        Learn the basics of programming, such as data types, variables, and operations
+    </p>
+
+    <div class="Space-Station">
+       
+    <form method = "get">    
+        <div class="cards">
+            <div class="card-item">
+                <span>Lists</span>
+                <ul>
+                    <li>What are Lists?</li>
+                    <li>Using Lists</li>
+                </ul>  
+                    <a id="link1" href="{{url_for("content", num=1)}}" style = "color: white; text-decoration: none">Start</a>     
+            </div>
+            <div class="card-item">
+                <span>Conditionals</span>
+                <ul>
+                    <li>If statements</li>
+                    <li>Else/elif statements</li>
+                    <li>Keywords</li>
+                </ul>  
+                    <a id="link2" href="{{url_for("content", num=2)}}" style = "color: white; text-decoration: none">Start</a>     
+            </div>
+            <div class="card-item">
+                <span>Loops</span>
+                <ul>
+                    <li>For Loops</li>
+                    <li>While Loops</li>
+                </ul>  
+                    <a id="link3" href="{{url_for("content", num=3)}}" style = "color: white; text-decoration: none">Start</a>     
+            </div>
+            <div class="card-item">
+                <span>Conclusion</span>
+                <ul>
+                    <li>Lists</li>
+                    <li>Conditionals</li>
+                    <li>Loops</li>
+                </ul>  
+                    <a id="link4" href="{{url_for("content", num=4)}}" style = "color: white; text-decoration: none">Start</a>     
+            </div>
+        </div>
+    </form>
+    </div>	
+</body>
