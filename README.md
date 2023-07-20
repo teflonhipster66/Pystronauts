@@ -10,10 +10,10 @@ Optionally, you can create and run this in a conda env.
 
 If the above does not work, here are the requirements:
 
-Flask
-MySQL Workbench
-Flask MySQL integration
-Hugging Face Transformers
+> Flask
+> MySQL Workbench
+> Flask MySQL integration
+> Hugging Face Transformers
 
 **Some Notes**
 
